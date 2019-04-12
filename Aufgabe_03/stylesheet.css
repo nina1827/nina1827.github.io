@@ -20,7 +20,16 @@ h1 {
 h2{
     
     font-size: 1.75em;
+
  }
+
+ 
+section {
+
+    color: #33001a;
+    width: 70%;
+
+}
     
 
 
@@ -46,12 +55,6 @@ h2{
 }
 
 
-section {
-
-    color: #33001a;
-    width: 70%;
-
-}
 footer{
 
     font-family: 'Times New Roman', Times, serif;
