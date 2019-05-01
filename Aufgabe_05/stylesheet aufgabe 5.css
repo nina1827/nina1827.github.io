@@ -70,8 +70,9 @@ section {
 max-height: 23em;
 overflow:auto;
 border-radius: 5px;
+display: inline-flexbox;
 
-    
+
 
 }
 aside {
@@ -117,9 +118,9 @@ footer{
 
     font-family: 'Times New Roman', Times, serif;
     font-size: 0.75em;
-    background-color: #b366ff;
+    background-color: #33ffff;
     color: #33001a;
-    width: 70%; 
+    width: 100%; 
 
 }
 
