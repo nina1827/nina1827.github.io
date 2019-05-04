@@ -2,7 +2,7 @@
 .kopf {
 
     color:	 #33001a;
-    background-color: #9933ff;
+    background-color: #e6ccff;
     font-family: "Arial",serif;
     width: 100%;
     text-align: center;
@@ -31,20 +31,78 @@ li:hover{
     text-decoration: underline;
     cursor: pointer;
 }
-body {
-
-    background-color: #ff1a8c;
-    clear: left;
-    margin: 0;
 
 }
 
 main{
-    float: left;
-    width: 75%;
+    float: right;
+    width: 80%;
     align-content: center;
+    margin-left: 20em;
+
     
 }
+
+body{
+
+    background-color: #000d1a;
+
+}
+
+
+ 
+section {
+
+    color: #33001a;
+    width: 75%;
+    float: left;
+    margin: 2%;
+    padding: 0;
+max-height: 23em;
+overflow:auto;
+border-radius: 5px;
+border-color: #000000;
+
+
+
+}
+
+div{
+
+    background-color: #990033;
+    width: 23%;
+    height:25%;
+    float: left;
+    overflow:hidden;
+    margin:1%;
+padding: 0em;
+border-radius: 2em;
+
+
+ 
+}
+
+.as1 {
+
+    width: 10%;
+    clear: left;
+    overflow:auto;
+    padding: 0em;
+    margin: 0em;
+    border-style: solid;
+    border-radius: 1em;
+    border-color: #000000;
+    background-color:#99ffbb;
+
+
+
+
+}
+
+.as1:hover{
+    width: 15%;
+}
+
 h1 {
     font-size: 2.5em;
     
@@ -59,38 +117,6 @@ h2{
 
     font-size: 2em;
  }
-
- 
-section {
-
-    color: #33001a;
-    width: 75%;
-    float: left;
-    margin:0.5%;
-max-height: 23em;
-overflow:auto;
-border-radius: 5px;
-display: inline-flexbox;
-
-
-
-}
-aside {
-
-    width: 25%;
-    float: left;
-    display: block;
-    clear: left;
-    min-height: 90em;
-    max-height: 90em;
-    overflow:auto
-
-}
-
-.as1:hover:{
-    width: 40%;
-}
-
 
 .eins {
     background-color:#33ffff;
@@ -118,9 +144,11 @@ footer{
 
     font-family: 'Times New Roman', Times, serif;
     font-size: 0.75em;
-    background-color: #33ffff;
+    background-color: #99ffbb;
     color: #33001a;
     width: 100%; 
+   clear: both;
+
 
 }
 
@@ -128,6 +156,14 @@ img {
 border: 1.5px solid #000000;     
 border-radius: 16px;
 margin-bottom: 1.5em;
+width: 10em;
+height: 15em;
 
 }
 
+.wrapper {
+    background-color: #e6ccff;
+    width: 80%;
+    float: right;
+
+}
