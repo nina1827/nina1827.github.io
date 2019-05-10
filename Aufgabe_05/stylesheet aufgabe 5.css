@@ -9,7 +9,7 @@
 
 }
 
-ul {
+nav ul {
 
     text-align: center;
     margin: 0;
@@ -18,7 +18,7 @@ ul {
 
 }
 
-li{
+nav li{
 
     display: inline;
     padding: 1%;
@@ -27,7 +27,7 @@ li{
     text-align: center;
 
 }
-li:hover{
+nav li:hover{
     text-decoration: underline;
     cursor: pointer;
 }
