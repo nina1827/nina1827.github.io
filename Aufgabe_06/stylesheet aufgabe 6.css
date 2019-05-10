@@ -11,6 +11,11 @@
 
 }
 
+a{
+
+    color: #990033;
+}
+
 ul {
 
     text-align: center;
@@ -33,7 +38,7 @@ li{
 }
 ul:hover{
 
-    height: 15em;
+    height:fit-content;
     background-color: #e6ccff;
     color: #990033;
 
@@ -214,12 +219,10 @@ height: 15em;
         height: 2,5em;
         overflow: hidden;
     
-    
-    
     }
     nav ul:hover{
     
-        height: 15em;
+        height: fit-content;
         background-color: #e6ccff;
         color: #990033;
     
