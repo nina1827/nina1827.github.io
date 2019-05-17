@@ -39,10 +39,11 @@ li {
 
 }
 ul:hover {
-
-    height:fit-content;
+    height: 12em;
     background-color: #e6ccff;
     color: #990033;
+    
+    transition: height 1s;
 
 }
 
