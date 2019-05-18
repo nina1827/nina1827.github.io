@@ -39,7 +39,7 @@ li {
 
 }
 ul:hover {
-    height: 15em;
+    height: 10.5em;
     background-color: #e6ccff;
     color: #990033;
     
@@ -183,7 +183,12 @@ div {
         
     width: 100%;
 }
-        
+      
+
+ul:hover {
+    height: 12em;
+
+}
 }
 
         /* Desktopansicht*/
@@ -210,5 +215,8 @@ div {
     clear: left;
 
 }
+
+ul:hover {
+    height: 15em;
   
 }
