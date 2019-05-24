@@ -18,12 +18,13 @@ function Rechnung() {
     console.log(vorname + nachname); //addition von 2 strings
     console.log(number1 + number2); //addition von 2 numbers
     console.log(vorname + number1); //addition von string und number
+    number2 = 31;
+    /*console.log(number2);*/
 }
 function Click() {
     console.log("buttons are fab-fab-fabulous");
     document.getElementById("ID1").innerHTML = "Good job u clicked me"; //änderung bei click
 }
-document.getElementById("ID2");
 function addPara() {
     let newPara = document.createElement("P");
     let position = document.getElementById("body");
