@@ -18,8 +18,8 @@ function Rechnung() {
     console.log(vorname + nachname); //addition von 2 strings
     console.log(number1 + number2); //addition von 2 numbers
     console.log(vorname + number1); //addition von string und number
-    number2 = 31;
-    /*console.log(number2);*/
+    /*number2 = 31;
+    console.log(number2);*/
 }
 function Click() {
     console.log("buttons are fab-fab-fabulous");
