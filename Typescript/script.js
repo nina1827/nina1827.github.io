@@ -29,7 +29,7 @@ function addPara() {
     let newPara = document.createElement("P");
     let position = document.getElementById("body");
     position.appendChild(newPara);
-    newPara.innerHTML = "Another element appeared";
+    newPara.innerHTML = "Surprise!!! Another element appeared";
     console.log("Woooooooooh another element!");
 }
 function classchange() {
