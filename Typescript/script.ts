@@ -4,27 +4,30 @@ window.alert("U clicked on my AMAZING website"); //bei öffnen der website ein a
 window.onload = function () //erscheint erst, sobald seite fertig geladen ist
 {
   console.log("Buttooooooooons");
-  Rechnung();
   document.getElementById("ID1").addEventListener("click", Click)
   document.getElementById("ID2").addEventListener("click", addPara)
   document.getElementById("ID3").addEventListener("click", classchange)
+  let buttonelement:HTMLElement = document.createElement("button");
+  buttonelement.innerHTML = "Klick mich";
+  buttonelement.addEventListener("click", Rechnung);
+  document.getElementById("test").appendChild(buttonelement);
 }
 
 
 function Rechnung()
 {
-let vorname : string = "KITKAT"; //let.variablenname:typ="mimimi";
+let vorname : string = "KITKAT"; //let variablenname:typ="mimimi";
 console.log(vorname);
 let nachname : string ="NINA"; 
 console.log(nachname);
 let number1 : number = 1827;
 console.log(number1);
 let number2 : number = 69;
+console.log(number2);
 console.log(vorname+nachname); //addition von 2 strings
 console.log(number1+number2); //addition von 2 numbers
 console.log(vorname+number1); //addition von string und number
-/*number2 = 31;
-console.log(number2);*/
+document.getElementById("ID3").innerHTML = number2.toString();
 }
 
 function Click()
