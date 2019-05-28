@@ -16,7 +16,7 @@ window.onload = function () //erscheint erst, sobald seite fertig geladen ist
 function Click()
 {
     console.log("buttons are fab-fab-fabulous");
-    document.getElementById("ID1").innerHTML="Good job u clicked me" //änderung bei click
+    document.getElementById("ID1").innerHTML="Good job u clicked me POGGERS" //änderung bei click
 
 }
 
