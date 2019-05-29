@@ -12,7 +12,7 @@ window.onload = function () {
 };
 function Click() {
     console.log("buttons are fab-fab-fabulous");
-    document.getElementById("ID1").innerHTML = "Good job u clicked me"; //änderung bei click
+    document.getElementById("ID1").innerHTML = "Good job u clicked me POGGERS"; //änderung bei click
 }
 function Rechnung() {
     let vorname = "KITKAT"; //let variablenname:typ="mimimi"
