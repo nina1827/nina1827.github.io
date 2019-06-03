@@ -14,7 +14,7 @@ let prefix = ["Shinigami-", "morderous", "unheimliche(s) ", "tödliche(s) ", "di
 let monsterName = ["Wolf", "Drache", "Thingy", "Killerbee", "Hydra"]; // length = 3, da 3 Einträge. Von 0-2.
 let suffix = [" aus deinem Keller", " von der Lichtung der Zerstörung", " der unendlichen Weiten", " mit Krüppelbeinchen", " des Hasses", " deiner Mom"]; // length = 6, da hier 6 Einträge sind. Von 0-5.
 let mImg = ["imgs/Augen.jpg", "imgs/boxer.jpg", "imgs/friends.jpg", "imgs/girl.jpg", "imgs/laughing.jpg", "imgs/siblings.jpg"];
-let monsterModifers = ["Ist nervig", "Linkshänder", "Bier-Connoisseur", "Verfehlt häufig", "Prokrastiniert", "Müde", "Verwirrt", "Wasserscheu", "Bipolar", "Hat Schnupfen", "Verläuft sich oft"]; // Eine Reihe von zufälligen "Verstärkern" für das Monster.
+let monsterModifers = ["hat Spaß am twerken", "versteckt sich in Büschen", "Wodka-Fanatiker", "kommt immer zu spät zur Action", "ist süchtig nach Memes", "verseucht die Umgebung mit seinem Mundgeruch", "Depri", "professionelle Bepflanzer", "Bipolar", "verkauft illegale Digimon-Karten", "entführt kleine Hündchen"]; // Eine Reihe von zufälligen "Verstärkern" für das Monster.
 let monsterWeapons = ["Gabel", "Zahnstocher", "Katana", "Pistolen", "Fingernägel", "Kettensäge"];
 // -- Initialisierung für viele/variable Anzahl an Monster --
 let monsterArray = []; // Das Haupt-Array wurde erstellt und initialisiert!
