@@ -40,7 +40,7 @@ let playerXP : number = 0;                                                      
 let playerXPperLevel : number = 500;                                               // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
 
 // Mehrere Arrays, welche jeweils Bauteile für Namen oder Eigenschaften der Monster beinhalten.
-let prefix : string[] = ["Shinigami-", "morderous", "unheimliche(s) ", "tödliche(s) ", "disgustingly creepy ", "GEMA-"]; // length = 6, da 6 Einträge. Von 0-5.
+let prefix : string[] = ["Shinigami-", "morderous ", "unheimliche(s) ", "tödliche(s) ", "disgustingly creepy ", "GEMA-"]; // length = 6, da 6 Einträge. Von 0-5.
 let monsterName : string[] = ["Wolf", "Drache", "Thingy","Killerbee","Hydra"]; // length = 3, da 3 Einträge. Von 0-2.
 let suffix : string[] = [" aus deinem Keller", " von der Lichtung der Zerstörung", " der unendlichen Weiten", " mit Krüppelbeinchen", " des Hasses", " deiner Mom"]; // length = 6, da hier 6 Einträge sind. Von 0-5.
 
