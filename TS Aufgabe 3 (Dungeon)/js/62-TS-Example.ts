@@ -11,7 +11,7 @@
 // Hilfe2: Betrachtet den umliegenden Code. Trackt die Werte von Variablen, falls euch etwas komisch vorkommt!
 
 // ------- interfaces --------- //
-// INSGESAMT EINGEBAUTE FEHLER beu den interfaces: Keine. (0 / null)
+
 
 // Monster sind vielfältig und können sehr unterschiedlich sein. Dennoch werden sie durch allgemeine Attribute, wie Name und Lebenspunkte, vereint.
 // Deshalb wird hier ein interface genutzt!
@@ -44,7 +44,7 @@ let prefix : string[] = ["Shinigami-", "morderous ", "unheimliche ", "tödliche 
 let monsterName : string[] = ["Wolf", "Drache", "Thingy","Killerbee","Hydra"]; // length = 3, da 3 Einträge. Von 0-2.
 let suffix : string[] = [" aus deinem Keller", " von der Lichtung der Zerstörung", " der unendlichen Weiten", " mit Krüppelbeinchen", " des Hasses", " deiner Mom"]; // length = 6, da hier 6 Einträge sind. Von 0-5.
 
-let mImg : string[] = ["imgs/Augen.jpg", "imgs/boxer.jpg", "imgs/laughing.jpg", "imgs/friends.jpg","imgs/girl.jpg","imgs/siblings.jpg"];
+let mImg : string[] = ["imgs/Augen.jpg", "imgs/boxer.jpg", "imgs/friends.jpg","imgs/girl.jpg","imgs/siblings.jpg"];
 let monsterModifers : string[] = ["hat Spaß am twerken", "versteckt sich in Büschen", "Wodka-Fanatiker", "kommt immer zu spät zur Action", "ist süchtig nach Memes", "verseucht die Umgebung mit seinem Mundgeruch", "Depri", "professionelle Bepflanzer", "Bipolar", "verkauft illegale Digimon-Karten", "entführt kleine Hündchen"]; // Eine Reihe von zufälligen "Verstärkern" für das Monster.
 let monsterWeapons : string[] = ["Gabel", "Zahnstocher","Katana", "Pistolen", "Fingernägel", "Kettensäge"];
 // -- Initialisierung für viele/variable Anzahl an Monster --
@@ -67,7 +67,9 @@ console.log(document.getElementById("monsterSpawner").innerHTML="IM A BIG BAD MO
 // Ruft eine Funktion auf, welche dann das entsprechende HTML erzeugt.
 function generateMonster()
 {
-  
+    let Random: number = getRNGNumber(3)+1; // Änderungen in ts werden in JS nicht ausgeführt: warum?
+    for(let i : number = 0; i < Random; i++);
+    
     let newMonsterName : string = generateMonsterName();                // Eigens-gebaute Funktion, welche einen string zurück gibt.
     let newMonsterHP : number = generateMonsterHitPoints();             // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
     let newMonsterXP : number = generateMonsterXP();                    // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
