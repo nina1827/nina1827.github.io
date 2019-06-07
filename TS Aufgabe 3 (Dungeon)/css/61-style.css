@@ -25,6 +25,14 @@ h1 {
 	width: 100%;
 }
 
+
+.monsterImg{
+	height: 35em;
+	
+}
+
+
+
 .monster button {
 	text-align: center;
 	display: block;
@@ -93,12 +101,6 @@ footer {
 footer a {
 	color: #ddd;
 	text-decoration: none;
-}
-
-.monsterimg{
-	height: 7em;
-	width: 5em;
-
 }
 
 
