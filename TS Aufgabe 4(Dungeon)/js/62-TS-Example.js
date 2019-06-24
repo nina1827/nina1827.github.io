@@ -4,10 +4,11 @@
 // Zu beginn werden hier zuerst Interfaces, danach Variablen deklariert.
 // Weiter unten kommen dann die Funktionen.
 // ------- Variablen -------- //
-// INSGESAMT EINGEBAUTE FEHLER bei den Variablen: I (1 / einer)
 let monsterHolder = "monsterHoldingCell"; // ID für das Haupt-Element, in welchem die Monster sich befinden werden. Wird vielleicht mehrfach in dem Skript gebraucht, deshalb einmalig definitiert.
 let playerName = "Random Bonobo"; // Ein paar globale Variablen, welche den Spieler darstellen.
-let playerXP = 0; // Stellt die gesammelte Erfahrung des Spielers dar.
+let playerXP = 200;
+let playerLevel = 5;
+let playerHP = 100; // Stellt die gesammelte Erfahrung des Spielers dar.
 let playerXPperLevel = 500; // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
 // Mehrere Arrays, welche jeweils Bauteile für Namen oder Eigenschaften der Monster beinhalten.
 let prefix = ["Shinigami-", "morderous ", "unheimliche ", "tödliche ", "disgustingly creepy ", "GEMA-"]; // length = 6, da 6 Einträge. Von 0-5.
@@ -20,10 +21,12 @@ let monsterWeapons = ["Gabel", "Zahnstocher", "Katana", "Pistolen", "Fingernäge
 let monsterArray = []; // Das Haupt-Array wurde erstellt und initialisiert!
 console.log(monsterArray); // Gebe das Monster-Array einmal zu beginn aus. Es sollte leer sein.
 // ----------- Funktionen ----------- //
-// INSGESAMT EINGEBAUTE FEHLER bei den Funktionen: IIIII (5 / fünf)
 // Generelle onload-funktion um Event-Listener zum Dokument hinzuzufügen
 window.onload = function () {
     document.getElementById("monsterSpawner").addEventListener("click", generateMonster, false);
+    document.getElementById("allMonsters").addEventListener("click", fightAllMonsters);
+    document.getElementById("allWeakMonsters").addEventListener("click", fightAllWeakMonsters);
+    document.getElementById("weakestMonster").addEventListener("click", fightWeakestMonster);
     updatePlayerLevel(); // Zu Anfang wird durch eine Funktion ein HTML-Element mit Inhalt befüllt.
 };
 // document.getElementById("monsterSpawner").innerHTML="IM A BIG BAD MONSTER";
@@ -40,11 +43,13 @@ function generateMonster() {
         let newMonsterXP = generateMonsterXP(); // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
         let newMonsterModifier = generateMonsterModifer(); // Eigens-gebaute Funktion, welche ein string-Array zurück gibt.
         let newMonsterWeapon = generateMonsterWeapon();
+        let newMonsterLevel = generateMonsterLevel();
         let newMonsterImg = generateMonsterImg();
         let newMonster = {
             monsterName: newMonsterName,
             monsterHealthPoints: newMonsterHP,
             monsterExperience: newMonsterXP,
+            monsterLevel: newMonsterLevel,
             monsterModifier: newMonsterModifier,
             monsterWeapon: newMonsterWeapon,
             monsterimg: newMonsterImg,
@@ -60,6 +65,9 @@ function monsterGenerateHTML(i) {
     holdingDiv.setAttribute("id", "monster" + i); // Die ID jedes neu-erstellten Monsters entspricht der aktuellen Array-Länge.
     holdingDiv.setAttribute("class", "monster"); // Klasse für Visuals.
     document.getElementById(monsterHolder).appendChild(holdingDiv); // Das HTML-Element muss erst noch zu einem Objekt hinzugefügt werden, in diesem Fall mit der id "monsterHoldingCell"
+    let monsterLevel = document.createElement("p");
+    monsterLevel.innerHTML = monsterArray[i].monsterLevel;
+    holdingDiv.appendChild(monsterLevel);
     let mWeapon = document.createElement("p");
     mWeapon.innerHTML = monsterArray[i].monsterWeapon;
     holdingDiv.appendChild(mWeapon);
@@ -140,6 +148,10 @@ function generateMonsterWeapon() {
     let rngNumber = getRNGNumber(monsterWeapons.length);
     return monsterWeapons[rngNumber];
 }
+function generateMonsterLevel() {
+    let monsterLevel = getRNGNumber(10);
+    return monsterLevel;
+}
 function generateMonsterImg() {
     let rngNumber = getRNGNumber(mImg.length);
     return mImg[rngNumber];
@@ -160,6 +172,25 @@ function generateMonsterModifer() {
     tempMonsterMod[1] = monsterModifers[getRNGNumber(monsterModifers.length)]; // Setze Schublade 1 des Arrays auf einen Wert.
     return tempMonsterMod; // Gebe das hier zusammengesetzte Array wieder zurück.
 }
+function fightAllMonsters() {
+    for (let i = monsterArray.length; i > 0; i--) {
+        fightMonster(i);
+    }
+}
+function fightAllWeakMonsters() {
+    for (let i = monsterArray.length; i > 0; i--) {
+        if (playerLevel >= monsterArray[i - 1].monsterLevel) {
+        }
+    }
+}
+function fightWeakestMonster() {
+    let tempWeakest = monsterArray.length;
+    for (let i = monsterArray.length; i > 0; i--) {
+        if (monsterArray[tempWeakest - 1].monsterLevel > monsterArray[i - 1].monsterLevel)
+            tempWeakest = i;
+    }
+    fightMonster(tempWeakest);
+}
 function additionalWeapons() {
     console.log("new weapons will be generated");
     monsterWeapons.push("Bogen");
@@ -173,17 +204,64 @@ console.log(monsterWeapons);
 // Aufgerufen, wenn man auf den Button klickt.
 // Der Spieler kämpft gegen das entsprechende Monster. Er erhält dann Erfahrungspunkte.
 function fightMonster(_index) {
-    console.log("Spieler kämpft gegen Monster und gewinnt!"); // Ohne Logik mit if/else ist so etwas wie ein Kampf nicht leicht umzusetzen.
-    console.log("Das Monster weigert sich zu verschwinden."); // Wird nächste Stunde erweitert.
-    playerXP += monsterArray[_index - 1].monsterExperience; // _index ist in diesem Fall die Länge des Arrays - allerdings zählt der Computer beginnend von null, nicht eins! Deshalb _index-1.
-    monsterArray.splice(_index, 1);
-    updateHTML();
+    if (playerLevel >= monsterArray[_index - 1].monsterLevel) {
+        playerXP += monsterArray[_index - 1].monsterExperience;
+        monsterArray.splice(_index - 1, 1);
+        console.log("Spieler kämpft gegen Monster und gewinnt!"); // Ohne Logik mit if/else ist so etwas wie ein Kampf nicht leicht umzusetzen.
+        // Wird nächste Stunde erweitert.
+        playerXP += monsterArray[_index - 1].monsterExperience; // _index ist in diesem Fall die Länge des Arrays - allerdings zählt der Computer beginnend von null, nicht eins! Deshalb _index-1.
+        monsterArray.splice(_index, 1);
+        updateHTML();
+        updatePlayerLevel();
+    }
+    else if (playerLevel > 0) {
+        (playerXP -= monsterArray[_index - 1].monsterExperience);
+        (playerHP -= Math.floor(Math.random() * 10 + 10));
+        if (playerHP == 0) {
+            window.alert("Game Over! You got ur #ss kicked big time");
+            window.alert("Good luck next time :^)");
+            lost();
+        }
+        if (playerHP < 0) {
+            window.alert("Game Over! You got ur #ss kicked big time");
+            window.alert("Good luck next time :^)");
+            lost();
+        }
+        console.log("Monster was too strong for random bonobo");
+    }
     updatePlayerLevel();
-}
-// Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
-function updatePlayerLevel() {
-    let tempLevel = Math.floor(playerXP / playerXPperLevel); // Spieler-Level = XP / XPproLevel
-    document.getElementById("xpCounter").innerHTML = "Player-Level: " + tempLevel + " (XP: " + playerXP + " / " + playerXPperLevel + ")"; // Baue den String für die Spieler-Info zusammen
-    console.log("Spieler " + playerName + " hat nun Level " + tempLevel + " mit " + playerXP + " (" + playerXPperLevel + " pro Level)"); // Spieler-Level in der Konsole.
+    updateHTML();
+    // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
+    function updatePlayerLevel() {
+        if (playerLevel < 0)
+            playerLevel = 0;
+        if (playerXP < 0) {
+            window.alert("Game Over! You got ur #ss kicked big time");
+            window.alert("Good luck next time :^)");
+            lost();
+        }
+        if (playerLevel == 20 || playerLevel > 20) {
+            window.alert("Congratz U~U U beat this stupid game ;*");
+            win();
+        }
+        {
+            playerLevel = Math.floor(playerXP / playerXPperLevel) + 1;
+            console.log(playerLevel);
+            let extendedXP = playerXPperLevel * playerLevel;
+            document.getElementById("xpCounter").innerHTML = "PlayerLevel: " + playerLevel + " (XP: " + playerLevel + " / " + extendedXP + ")";
+            console.log("Spieler " + playerName + " reached " + playerLevel + "with" + playerXP + "(" + playerXPperLevel + "per level)");
+            document.getElementById("HP").innerHTML = "HP: " + playerHP + "%";
+            return playerLevel;
+        }
+    }
+    function win() {
+        location.reload();
+    }
+    function lost() {
+        location.reload();
+    }
+    //let tempLevel : number = Math.floor(playerXP / playerXPperLevel);                                                                           // Spieler-Level = XP / XPproLevel
+    // document.getElementById("xpCounter").innerHTML = "Player-Level: " + tempLevel + " (XP: " + playerXP + " / " + playerXPperLevel + ")";       // Baue den String für die Spieler-Info zusammen
+    //console.log("Spieler " + playerName + " hat nun Level " + tempLevel + " mit " + playerXP + " (" + playerXPperLevel + " pro Level)");        // Spieler-Level in der Konsole.
 }
 //# sourceMappingURL=62-TS-Example.js.map
