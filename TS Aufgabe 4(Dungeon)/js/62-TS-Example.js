@@ -1,8 +1,4 @@
-// BEISPIEL UND AUFGABE:
-// Dieses Skript soll als Beispiel dazu dienen, wie Interfaces und Arrays genutzt werden können.
-// Hier wird ein ungefährer Aufbau eines simplen Klick-Spiels gezeigt. Der Nutzer kann dabei durch Button ein neues Monster erstellen.
-// Zu beginn werden hier zuerst Interfaces, danach Variablen deklariert.
-// Weiter unten kommen dann die Funktionen.
+// ------- interfaces --------- //
 // ------- Variablen -------- //
 let monsterHolder = "monsterHoldingCell"; // ID für das Haupt-Element, in welchem die Monster sich befinden werden. Wird vielleicht mehrfach in dem Skript gebraucht, deshalb einmalig definitiert.
 let playerName = "Random Bonobo"; // Ein paar globale Variablen, welche den Spieler darstellen.
@@ -23,11 +19,12 @@ console.log(monsterArray); // Gebe das Monster-Array einmal zu beginn aus. Es so
 // ----------- Funktionen ----------- //
 // Generelle onload-funktion um Event-Listener zum Dokument hinzuzufügen
 window.onload = function () {
+    updatePlayerLevel();
     document.getElementById("monsterSpawner").addEventListener("click", generateMonster, false);
     document.getElementById("allMonsters").addEventListener("click", fightAllMonsters);
     document.getElementById("allWeakMonsters").addEventListener("click", fightAllWeakMonsters);
     document.getElementById("weakestMonster").addEventListener("click", fightWeakestMonster);
-    updatePlayerLevel(); // Zu Anfang wird durch eine Funktion ein HTML-Element mit Inhalt befüllt.
+    // Zu Anfang wird durch eine Funktion ein HTML-Element mit Inhalt befüllt.
 };
 // document.getElementById("monsterSpawner").innerHTML="IM A BIG BAD MONSTER";
 // console.log(document.getElementById("monsterSpawner").innerHTML);
@@ -66,7 +63,7 @@ function monsterGenerateHTML(i) {
     holdingDiv.setAttribute("class", "monster"); // Klasse für Visuals.
     document.getElementById(monsterHolder).appendChild(holdingDiv); // Das HTML-Element muss erst noch zu einem Objekt hinzugefügt werden, in diesem Fall mit der id "monsterHoldingCell"
     let monsterLevel = document.createElement("p");
-    monsterLevel.innerHTML = monsterArray[i].monsterLevel;
+    monsterLevel.innerHTML = "Level" + monsterArray[i - 1].monsterLevel;
     holdingDiv.appendChild(monsterLevel);
     let mWeapon = document.createElement("p");
     mWeapon.innerHTML = monsterArray[i].monsterWeapon;
@@ -214,7 +211,8 @@ function fightMonster(_index) {
         updateHTML();
         updatePlayerLevel();
     }
-    else if (playerLevel > 0) {
+    //else
+    if (playerLevel > 0) {
         (playerXP -= monsterArray[_index - 1].monsterExperience);
         (playerHP -= Math.floor(Math.random() * 10 + 10));
         if (playerHP == 0) {
@@ -232,36 +230,36 @@ function fightMonster(_index) {
     updatePlayerLevel();
     updateHTML();
     // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
-    function updatePlayerLevel() {
-        if (playerLevel < 0)
-            playerLevel = 0;
-        if (playerXP < 0) {
-            window.alert("Game Over! You got ur #ss kicked big time");
-            window.alert("Good luck next time :^)");
-            lost();
-        }
-        if (playerLevel == 20 || playerLevel > 20) {
-            window.alert("Congratz U~U U beat this stupid game ;*");
-            win();
-        }
-        {
-            playerLevel = Math.floor(playerXP / playerXPperLevel) + 1;
-            console.log(playerLevel);
-            let extendedXP = playerXPperLevel * playerLevel;
-            document.getElementById("xpCounter").innerHTML = "PlayerLevel: " + playerLevel + " (XP: " + playerLevel + " / " + extendedXP + ")";
-            console.log("Spieler " + playerName + " reached " + playerLevel + "with" + playerXP + "(" + playerXPperLevel + "per level)");
-            document.getElementById("HP").innerHTML = "HP: " + playerHP + "%";
-            return playerLevel;
-        }
-    }
-    function win() {
-        location.reload();
-    }
-    function lost() {
-        location.reload();
-    }
     //let tempLevel : number = Math.floor(playerXP / playerXPperLevel);                                                                           // Spieler-Level = XP / XPproLevel
     // document.getElementById("xpCounter").innerHTML = "Player-Level: " + tempLevel + " (XP: " + playerXP + " / " + playerXPperLevel + ")";       // Baue den String für die Spieler-Info zusammen
     //console.log("Spieler " + playerName + " hat nun Level " + tempLevel + " mit " + playerXP + " (" + playerXPperLevel + " pro Level)");        // Spieler-Level in der Konsole.
+}
+function updatePlayerLevel() {
+    if (playerLevel < 0)
+        playerLevel = 0;
+    if (playerXP < 0) {
+        window.alert("Game Over! You got ur #ss kicked big time");
+        window.alert("Good luck next time :^)");
+        lost();
+    }
+    if (playerLevel == 20 || playerLevel > 20) {
+        window.alert("Congratz U~U U beat this stupid game ;*");
+        win();
+    }
+    {
+        playerLevel = Math.floor(playerXP / playerXPperLevel) + 1;
+        console.log(playerLevel);
+        let extendedXP = playerXPperLevel * playerLevel;
+        document.getElementById("xpCounter").innerHTML = "PlayerLevel: " + playerLevel + " (XP: " + playerLevel + " / " + extendedXP + ")";
+        console.log("Spieler " + playerName + " reached " + playerLevel + "with" + playerXP + "(" + playerXPperLevel + "per level)");
+        document.getElementById("HP").innerHTML = "HP: " + playerHP + "%";
+        return playerLevel;
+    }
+}
+function win() {
+    location.reload();
+}
+function lost() {
+    location.reload();
 }
 //# sourceMappingURL=62-TS-Example.js.map

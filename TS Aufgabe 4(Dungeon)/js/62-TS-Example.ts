@@ -97,7 +97,7 @@ function monsterGenerateHTML(i: number) {
     document.getElementById(monsterHolder).appendChild(holdingDiv);     // Das HTML-Element muss erst noch zu einem Objekt hinzugefügt werden, in diesem Fall mit der id "monsterHoldingCell"
 
     let monsterLevel: HTMLElement = document.createElement("p");
-    monsterLevel.innerHTML = monsterArray[i].monsterLevel;
+    monsterLevel.innerHTML = "Level" + monsterArray[i-1].monsterLevel;
     holdingDiv.appendChild(monsterLevel);
 
     let mWeapon: HTMLElement = document.createElement("p");
@@ -249,7 +249,8 @@ function fightWeakestMonster() {
     let tempWeakest = monsterArray.length;
     for (let i = monsterArray.length; i > 0; i--) {
         if (monsterArray[tempWeakest - 1].monsterLevel > monsterArray[i - 1].monsterLevel)
-            tempWeakest = i;
+            tempWeakest = i; 
+        
     }
     fightMonster(tempWeakest);
 }
@@ -283,7 +284,8 @@ function fightMonster(_index: number) {
         updateHTML();
         updatePlayerLevel();
     }
-    else if (playerLevel > 0) {
+    //else
+     if (playerLevel > 0) {
         (playerXP -= monsterArray[_index - 1].monsterExperience);
         (playerHP -= Math.floor(Math.random() * 10 + 10));
         if (playerHP == 0) {
@@ -330,6 +332,8 @@ function updatePlayerLevel() {
         return playerLevel;
     }
 }
+
+
 function win() {
     location.reload();
 }
