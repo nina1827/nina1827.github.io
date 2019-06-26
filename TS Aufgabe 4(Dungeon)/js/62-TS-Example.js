@@ -250,7 +250,7 @@ function updatePlayerLevel() {
         playerLevel = Math.floor(playerXP / playerXPperLevel) + 1;
         console.log(playerLevel);
         let extendedXP = playerXPperLevel * playerLevel;
-        document.getElementById("xpCounter").innerHTML = "PlayerLevel: " + playerLevel + " (XP: " + playerLevel + " / " + extendedXP + ")";
+        document.getElementById("xpCounter").innerHTML = "PlayerLevel: " + playerLevel + " (XP: " + playerXP + " / " + extendedXP + ")";
         console.log("Spieler " + playerName + " reached " + playerLevel + "with" + playerXP + "(" + playerXPperLevel + "per level)");
         document.getElementById("HP").innerHTML = "HP: " + playerHP + "%";
         return playerLevel;
