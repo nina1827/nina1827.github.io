@@ -23,7 +23,7 @@ interface Monster {
 
 let monsterHolder: string = "monsterHoldingCell";       // ID für das Haupt-Element, in welchem die Monster sich befinden werden. Wird vielleicht mehrfach in dem Skript gebraucht, deshalb einmalig definitiert.
 let playerName: string = "Random Bonobo";               // Ein paar globale Variablen, welche den Spieler darstellen.
-let playerXP: number = 200;
+let playerXP: number = 2000;
 let playerLevel: number = 5;
 let playerHP: number = 100;                            // Stellt die gesammelte Erfahrung des Spielers dar.
 let playerXPperLevel: number = 500;                     // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.

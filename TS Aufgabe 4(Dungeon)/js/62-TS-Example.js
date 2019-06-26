@@ -2,7 +2,7 @@
 // ------- Variablen -------- //
 let monsterHolder = "monsterHoldingCell"; // ID für das Haupt-Element, in welchem die Monster sich befinden werden. Wird vielleicht mehrfach in dem Skript gebraucht, deshalb einmalig definitiert.
 let playerName = "Random Bonobo"; // Ein paar globale Variablen, welche den Spieler darstellen.
-let playerXP = 200;
+let playerXP = 2000;
 let playerLevel = 5;
 let playerHP = 100; // Stellt die gesammelte Erfahrung des Spielers dar.
 let playerXPperLevel = 500; // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
