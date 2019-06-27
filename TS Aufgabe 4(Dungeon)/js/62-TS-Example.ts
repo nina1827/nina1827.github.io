@@ -97,7 +97,7 @@ function monsterGenerateHTML(i: number) {
     document.getElementById(monsterHolder).appendChild(holdingDiv);     // Das HTML-Element muss erst noch zu einem Objekt hinzugefügt werden, in diesem Fall mit der id "monsterHoldingCell"
 
     let monsterLevel: HTMLElement = document.createElement("p");
-    monsterLevel.innerHTML = "Level" + monsterArray[i-1].monsterLevel;
+    monsterLevel.innerHTML = "Level" + monsterArray[i - 1].monsterLevel;
     holdingDiv.appendChild(monsterLevel);
 
     let mWeapon: HTMLElement = document.createElement("p");
@@ -241,6 +241,7 @@ function fightAllMonsters() {
 function fightAllWeakMonsters() {
     for (let i = monsterArray.length; i > 0; i--) {
         if (playerLevel >= monsterArray[i - 1].monsterLevel) {
+            fightMonster(i);
         }
     }
 }
@@ -249,8 +250,8 @@ function fightWeakestMonster() {
     let tempWeakest = monsterArray.length;
     for (let i = monsterArray.length; i > 0; i--) {
         if (monsterArray[tempWeakest - 1].monsterLevel > monsterArray[i - 1].monsterLevel)
-            tempWeakest = i; 
-        
+            tempWeakest = i;
+
     }
     fightMonster(tempWeakest);
 }
@@ -274,37 +275,36 @@ function fightMonster(_index: number) {
     if (playerLevel >= monsterArray[_index - 1].monsterLevel) {
         playerXP += monsterArray[_index - 1].monsterExperience;
         monsterArray.splice(_index - 1, 1);
-
-
-        console.log("Spieler kämpft gegen Monster und gewinnt!");                       // Ohne Logik mit if/else ist so etwas wie ein Kampf nicht leicht umzusetzen.
-        // Wird nächste Stunde erweitert.
-
-        playerXP += monsterArray[_index - 1].monsterExperience;  // _index ist in diesem Fall die Länge des Arrays - allerdings zählt der Computer beginnend von null, nicht eins! Deshalb _index-1.
-        monsterArray.splice(_index, 1);
-        updateHTML();
-        updatePlayerLevel();
     }
-    //else
-     if (playerLevel > 0) {
-        (playerXP -= monsterArray[_index - 1].monsterExperience);
-        (playerHP -= Math.floor(Math.random() * 10 + 10));
-        if (playerHP == 0) {
-            window.alert("Game Over! You got ur #ss kicked big time");
-            window.alert("Good luck next time :^)");
-            lost()
-        }
-        if (playerHP < 0) {
-            window.alert("Game Over! You got ur #ss kicked big time");
-            window.alert("Good luck next time :^)");
-            lost()
-        }
-        console.log("Monster was too strong for random bonobo")
-    }
-    updatePlayerLevel();
+
+    console.log("Spieler kämpft gegen Monster und gewinnt!");       // Ohne Logik mit if/else ist so etwas wie ein Kampf nicht leicht umzusetzen.
+    // Wird nächste Stunde erweitert.
+
     updateHTML();
+    updatePlayerLevel();
+}
+
+    
+    else if (playerLevel > 0) {
+    (playerXP -= monsterArray[_index - 1].monsterExperience);
+    (playerHP -= Math.floor(Math.random() * 10 + 10));
+    if (playerHP == 0) {
+        window.alert("Game Over! You got ur #ss kicked big time");
+        window.alert("Good luck next time :^)");
+        lost()
+    }
+    if (playerHP < 0) {
+        window.alert("Game Over! You got ur #ss kicked big time");
+        window.alert("Good luck next time :^)");
+        lost()
+    }
+    console.log("Monster was too strong for random bonobo")
+}
+updatePlayerLevel();
+updateHTML();
     // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
-    
-    
+
+
     //let tempLevel : number = Math.floor(playerXP / playerXPperLevel);                                                                           // Spieler-Level = XP / XPproLevel
 
     // document.getElementById("xpCounter").innerHTML = "Player-Level: " + tempLevel + " (XP: " + playerXP + " / " + playerXPperLevel + ")";       // Baue den String für die Spieler-Info zusammen
