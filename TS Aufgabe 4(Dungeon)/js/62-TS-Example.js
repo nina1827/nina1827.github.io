@@ -66,8 +66,11 @@ function monsterGenerateHTML(i) {
     monsterLevel.innerHTML = "Level: " + monsterArray[i - 1].monsterLevel;
     holdingDiv.appendChild(monsterLevel);
     let mWeapon = document.createElement("p");
-    mWeapon.innerHTML = monsterArray[i].monsterWeapon;
+    mWeapon.innerHTML = "Waffe: " + monsterArray[i].monsterWeapon;
     holdingDiv.appendChild(mWeapon);
+    let monsterExperience = document.createElement("p");
+    monsterExperience.innerHTML = "Monster-XP: " + monsterArray[i].monsterExperience;
+    holdingDiv.appendChild(monsterExperience);
     let monsterName = document.createElement("p"); // Generiere einen <p>
     monsterName.innerHTML = monsterArray[i].monsterName; // Inhalt des <p>: Monster-Name des letzten Monsters im Array.
     holdingDiv.appendChild(monsterName); // Füge das <p> zum HTML-Dokument hinzu, indem es dem holding-Div angefügt wird.
