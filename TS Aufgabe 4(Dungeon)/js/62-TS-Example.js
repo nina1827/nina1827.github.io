@@ -63,7 +63,7 @@ function monsterGenerateHTML(i) {
     holdingDiv.setAttribute("class", "monster"); // Klasse für Visuals.
     document.getElementById(monsterHolder).appendChild(holdingDiv); // Das HTML-Element muss erst noch zu einem Objekt hinzugefügt werden, in diesem Fall mit der id "monsterHoldingCell"
     let monsterLevel = document.createElement("p");
-    monsterLevel.innerHTML = "Level" + monsterArray[i - 1].monsterLevel;
+    monsterLevel.innerHTML = "Level: " + monsterArray[i - 1].monsterLevel;
     holdingDiv.appendChild(monsterLevel);
     let mWeapon = document.createElement("p");
     mWeapon.innerHTML = monsterArray[i].monsterWeapon;
@@ -205,29 +205,33 @@ function fightMonster(_index) {
     if (playerLevel >= monsterArray[_index - 1].monsterLevel) {
         playerXP += monsterArray[_index - 1].monsterExperience;
         monsterArray.splice(_index - 1, 1);
+        console.log("Spieler kämpft gegen Monster und gewinnt!"); // Ohne Logik mit if/else ist so etwas wie ein Kampf nicht leicht umzusetzen.
+        // Wird nächste Stunde erweitert.
+        updateHTML();
+        updatePlayerLevel();
     }
-    console.log("Spieler kämpft gegen Monster und gewinnt!"); // Ohne Logik mit if/else ist so etwas wie ein Kampf nicht leicht umzusetzen.
-    // Wird nächste Stunde erweitert.
-    updateHTML();
+    else if (playerLevel > 0) {
+        (playerXP -= monsterArray[_index - 1].monsterExperience);
+        (playerHP -= Math.floor(Math.random() * 10 + 10));
+        if (playerHP == 0) {
+            window.alert("Game Over! You got ur #ss kicked big time");
+            window.alert("Good luck next time :^)");
+            lost();
+        }
+        if (playerHP < 0) {
+            window.alert("Game Over! You got ur #ss kicked big time");
+            window.alert("Good luck next time :^)");
+            lost();
+        }
+        console.log("Monster was too strong for random bonobo");
+    }
     updatePlayerLevel();
+    updateHTML();
+    // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
+    //let tempLevel : number = Math.floor(playerXP / playerXPperLevel);                                                                           // Spieler-Level = XP / XPproLevel
+    // document.getElementById("xpCounter").innerHTML = "Player-Level: " + tempLevel + " (XP: " + playerXP + " / " + playerXPperLevel + ")";       // Baue den String für die Spieler-Info zusammen
+    //console.log("Spieler " + playerName + " hat nun Level " + tempLevel + " mit " + playerXP + " (" + playerXPperLevel + " pro Level)");        // Spieler-Level in der Konsole.
 }
-if (playerLevel > 0) {
-    (playerXP -= monsterArray[_index - 1].monsterExperience);
-    (playerHP -= Math.floor(Math.random() * 10 + 10));
-    if (playerHP == 0) {
-        window.alert("Game Over! You got ur #ss kicked big time");
-        window.alert("Good luck next time :^)");
-        lost();
-    }
-    if (playerHP < 0) {
-        window.alert("Game Over! You got ur #ss kicked big time");
-        window.alert("Good luck next time :^)");
-        lost();
-    }
-    console.log("Monster was too strong for random bonobo");
-}
-updatePlayerLevel();
-updateHTML();
 function updatePlayerLevel() {
     if (playerLevel < 0)
         playerLevel = 0;

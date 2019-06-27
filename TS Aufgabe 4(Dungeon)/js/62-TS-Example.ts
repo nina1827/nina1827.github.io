@@ -97,7 +97,7 @@ function monsterGenerateHTML(i: number) {
     document.getElementById(monsterHolder).appendChild(holdingDiv);     // Das HTML-Element muss erst noch zu einem Objekt hinzugefügt werden, in diesem Fall mit der id "monsterHoldingCell"
 
     let monsterLevel: HTMLElement = document.createElement("p");
-    monsterLevel.innerHTML = "Level" + monsterArray[i - 1].monsterLevel;
+    monsterLevel.innerHTML = "Level: " + monsterArray[i - 1].monsterLevel;
     holdingDiv.appendChild(monsterLevel);
 
     let mWeapon: HTMLElement = document.createElement("p");
@@ -275,7 +275,7 @@ function fightMonster(_index: number) {
     if (playerLevel >= monsterArray[_index - 1].monsterLevel) {
         playerXP += monsterArray[_index - 1].monsterExperience;
         monsterArray.splice(_index - 1, 1);
-    }
+   
 
     console.log("Spieler kämpft gegen Monster und gewinnt!");       // Ohne Logik mit if/else ist so etwas wie ein Kampf nicht leicht umzusetzen.
     // Wird nächste Stunde erweitert.
