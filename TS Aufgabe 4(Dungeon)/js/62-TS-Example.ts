@@ -23,10 +23,10 @@ interface Monster {
 
 let monsterHolder: string = "monsterHoldingCell";       // ID für das Haupt-Element, in welchem die Monster sich befinden werden. Wird vielleicht mehrfach in dem Skript gebraucht, deshalb einmalig definitiert.
 let playerName: string = "Random Bonobo";               // Ein paar globale Variablen, welche den Spieler darstellen.
-let playerXP: number = 2000;
-let playerLevel: number = 5;
+let playerXP: number = 600;
+let playerLevel: number = 3;
 let playerHP: number = 100;                            // Stellt die gesammelte Erfahrung des Spielers dar.
-let playerXPperLevel: number = 500;                     // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
+let playerXPperLevel: number = 300;                     // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
 
 // Mehrere Arrays, welche jeweils Bauteile für Namen oder Eigenschaften der Monster beinhalten.
 let prefix: string[] = ["Shinigami-", "morderous ", "unheimliche ", "tödliche ", "disgustingly creepy ", "GEMA-"]; // length = 6, da 6 Einträge. Von 0-5.
@@ -75,7 +75,7 @@ function generateMonster() {
             monsterExperience: newMonsterXP,
             monsterLevel: newMonsterLevel,
             monsterModifier: newMonsterModifier,
-            monsterWeapon: newMonsterWeapon,
+            monsterWeapon: newMonsterWeapon, 
             monsterimg: newMonsterImg,
 
 
@@ -147,7 +147,7 @@ function getMonsterCount(): number {
 }
 
 function monsterGenerateHTMAll() {
-    for (let i: number = 1; i < getMonsterCount(); i++) {
+    for (let i: number = 1; i < monsterArray.length; i++) {
         monsterGenerateHTML(i);
     }
 }
@@ -331,7 +331,7 @@ function updatePlayerLevel() {
         console.log(playerLevel);
         let extendedXP = playerXPperLevel * playerLevel;
         document.getElementById("xpCounter").innerHTML = "PlayerLevel: " + playerLevel + " (XP: " + playerXP + " / " + extendedXP + ")";
-        console.log("Spieler " + playerName + " reached " + playerLevel + "with" + playerXP + "(" + playerXPperLevel + "per level)");
+        console.log("Spieler " + playerName + " reached " + playerLevel + " with " + playerXP + "(" + playerXPperLevel + "per level)");
         document.getElementById("HP").innerHTML = "HP: " + playerHP + "%";
         return playerLevel;
     }

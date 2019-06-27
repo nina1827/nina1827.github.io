@@ -2,10 +2,10 @@
 // ------- Variablen -------- //
 let monsterHolder = "monsterHoldingCell"; // ID für das Haupt-Element, in welchem die Monster sich befinden werden. Wird vielleicht mehrfach in dem Skript gebraucht, deshalb einmalig definitiert.
 let playerName = "Random Bonobo"; // Ein paar globale Variablen, welche den Spieler darstellen.
-let playerXP = 2000;
-let playerLevel = 5;
+let playerXP = 600;
+let playerLevel = 3;
 let playerHP = 100; // Stellt die gesammelte Erfahrung des Spielers dar.
-let playerXPperLevel = 500; // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
+let playerXPperLevel = 300; // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
 // Mehrere Arrays, welche jeweils Bauteile für Namen oder Eigenschaften der Monster beinhalten.
 let prefix = ["Shinigami-", "morderous ", "unheimliche ", "tödliche ", "disgustingly creepy ", "GEMA-"]; // length = 6, da 6 Einträge. Von 0-5.
 let monsterName = ["Wolf", "Drache", "Thingy", "Killerbee", "Hydra"]; // length = 3, da 3 Einträge. Von 0-2.
@@ -101,7 +101,7 @@ function getMonsterCount() {
     return monsterArray.length;
 }
 function monsterGenerateHTMAll() {
-    for (let i = 1; i < getMonsterCount(); i++) {
+    for (let i = 1; i < monsterArray.length; i++) {
         monsterGenerateHTML(i);
     }
 }
@@ -252,7 +252,7 @@ function updatePlayerLevel() {
         console.log(playerLevel);
         let extendedXP = playerXPperLevel * playerLevel;
         document.getElementById("xpCounter").innerHTML = "PlayerLevel: " + playerLevel + " (XP: " + playerXP + " / " + extendedXP + ")";
-        console.log("Spieler " + playerName + " reached " + playerLevel + "with" + playerXP + "(" + playerXPperLevel + "per level)");
+        console.log("Spieler " + playerName + " reached " + playerLevel + " with " + playerXP + "(" + playerXPperLevel + "per level)");
         document.getElementById("HP").innerHTML = "HP: " + playerHP + "%";
         return playerLevel;
     }
