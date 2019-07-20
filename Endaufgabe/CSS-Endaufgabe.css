@@ -13,14 +13,13 @@
 
 .meinDeck{
 
-    width: 100%;
-  
+width: 100%;
+color: #ffffff; 
 background-color: #000000;
 position: fixed; 
-  left: 0px;
-  bottom: 0px; 
-  height: 64px;
- 
+left: 0px;
+bottom: 0px; 
+
 }
 
 header{
@@ -30,26 +29,27 @@ header{
 
 
 .gelegtesDeck {
-
     float: left;
     width: 49%;
     overflow:auto;
     padding: 0em;
     margin: 0em;
-    border-style: solid;
-    border-radius: 1em;
-    border-color: #000000;
     background-color:#99ffbb;
-    font-size: 1em;
+    font-size: 1em
+    ;position: relative;
+    top: 200px;
 }
 
 .Hauptdeck {
     float: right;
-    width: 49%; 
+    width: 49%;
     overflow:auto;
-   
+    padding: 0em;
+    margin: 0em;
     background-color:#99ffbb;
-    font-size: 1em;
+    font-size: 1em
+    ;position: relative;
+    top: 200px;
 
 }
 
