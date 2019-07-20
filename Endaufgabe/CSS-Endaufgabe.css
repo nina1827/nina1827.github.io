@@ -1,9 +1,26 @@
+.GegnerDeck{
+    width: 80%;
+   
+    background-color: #ff0060;
+    left: 0;
+    top: 4em;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    z-index: 999;
+}
+
+
 .meinDeck{
 
     width: 100%;
-    height: 30%;
-    position: absolute;
-    background-color: #000000;
+  
+background-color: #000000;
+position: fixed; 
+  left: 0px;
+  bottom: 0px; 
+  height: 64px;
+ 
 }
 
 header{
@@ -11,18 +28,11 @@ header{
     color: #ffffff;
 }
 
-.GegnerDeck{
-    width: 100%;
-    height: 30%;
-}
 
 .gelegtesDeck {
 
     float: left;
-    transform: rotate(45°);
-
-    width: 40%;
-    height: 20%;   
+    width: 49%;
     overflow:auto;
     padding: 0em;
     margin: 0em;
@@ -35,16 +45,9 @@ header{
 
 .Hauptdeck {
     float: right;
-    transform: rotate(90°);
-
-    width: 40%; 
-    height: 20%;  
+    width: 49%; 
     overflow:auto;
-    padding: 0em;
-    margin: 0em;
-    border-style: solid;
-    border-radius: 1em;
-    border-color: #000000;
+   
     background-color:#99ffbb;
     font-size: 1em;
 
