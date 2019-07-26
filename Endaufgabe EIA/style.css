@@ -1,0 +1,111 @@
+header {
+    background-color: #660033;
+    width: 100%;
+    height: 20px;
+    color: #ffb3d9;
+}
+footer{
+    font-size: 2em;
+    margin-top: 75%;
+    background-color: #660033;
+    width: 100%;
+    color: #ffb3d9;
+    text-align: right;
+}
+a{
+    color: #ffb3d9;
+}
+
+main{
+    background-color: #874465;
+
+}
+
+h2 {
+font-size: 0.75em;
+
+}
+.Card{
+    height: 150px;
+    width: 90px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    border-radius: 10%;
+}
+#PlayerHand .Card{
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3em;
+}
+#CPUHand .Card{
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1em;
+}
+
+#TableCard .Card{
+    margin-top: -3em;
+    margin-left: -6em;
+}
+
+.card.Hidden{
+    background-image: url("background.jpg");
+}
+
+#DrawCards .Card{
+    display: inline-block;
+    margin-top: -3em;
+    margin-left: -5em;
+}
+.CardValue{
+    color: #000000;
+    margin-left:30%;
+    padding: 10%;
+    padding-top: 1.8em;
+    font-size: 2em;
+}
+.Blue{
+    background-color:#0000b3;
+}
+.Red{
+    background-color:#e60000;
+}
+.Green{
+    background-color: #00b300;
+}
+.Yellow{
+    background-color: #ffff00;
+}
+#CPUHand{
+    background-color: #660033;
+    height: 200px;
+    width: 100%;
+    clear: both;
+    margin-bottom: -1%;
+}
+#DrawCards{
+    height: 150px;
+    width: 75px;
+    float: left;
+    margin-left: 25%;
+    margin-bottom: 0%;
+    margin-top: 7%;
+}
+#TableCard{
+    height: 150px;
+    width: 75px;
+    float: left;
+    margin-bottom: 0%;
+    margin-left: 25%;
+    margin-top: 7%;
+}
+#PlayerHand{
+    background-color: #660033;
+    height: 200px;
+    width: 100%;
+    clear: both;
+    margin-bottom: -75%;
+}
