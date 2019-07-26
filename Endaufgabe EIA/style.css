@@ -15,21 +15,21 @@ footer{
 a{
     color: #ffb3d9;
 }
+h2{
+  size: 1em;
+  font-size: 0.8em;
+}
 
 main{
     background-color: #874465;
 
 }
 
-h2 {
-font-size: 0.75em;
-
-}
 .Card{
     height: 150px;
     width: 90px;
     border-style: solid;
-    border-color: #ffffff;
+    border-color: white;
     border-width: 1px;
     border-radius: 10%;
 }
@@ -61,23 +61,23 @@ font-size: 0.75em;
     margin-left: -5em;
 }
 .CardValue{
-    color: #000000;
+    color: Black;
     margin-left:30%;
     padding: 10%;
     padding-top: 1.8em;
     font-size: 2em;
 }
 .Blue{
-    background-color:#0000b3;
+    background-color: blue;
 }
 .Red{
-    background-color:#e60000;
+    background-color: red;
 }
 .Green{
-    background-color: #00b300;
+    background-color: green;
 }
 .Yellow{
-    background-color: #ffff00;
+    background-color: yellow;
 }
 #CPUHand{
     background-color: #660033;

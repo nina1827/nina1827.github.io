@@ -88,6 +88,7 @@ function CardPut(card: Card, index: number){
     if(card.CardValue == TableCard[TableCard.length-1].CardValue || card.CardColor == TableCard[TableCard.length-1].CardColor){
         TableCard.push(card);
         PlayerHand.splice(index, 1);
+        if(PlayerHand.length < 1){GameOver(true);}
         updateHTML("PlayerHand");
         updateHTML("TableCard");
         EnemyTurn();
@@ -100,6 +101,7 @@ function EnemyTurn(){
         if(CPUHand[i].CardColor == TableCard[TableCard.length-1].CardColor || CPUHand[i].CardValue == TableCard[TableCard.length-1].CardValue){
             TableCard.push(CPUHand[i]);
             CPUHand.splice(i,1);
+            if(CPUHand.length < 1){GameOver(false);}
             updateHTML("TableCard");
             updateHTML("CPUHand");
             break;
@@ -187,19 +189,19 @@ function Play(){
     for(let i=0; i<CPUHand.length; i++) {
         HiddenCard(CPUHand[i],"CPUHand",i);
     }
-    GameOver();
 
 
     CardHTML(TableCard[TableCard.length-1],"TableCard",TableCard.length-1);
     HiddenCard(DrawCards[DrawCards.length-1],"DrawCards",DrawCards.length-1);
 }
-function GameOver(){
-    if(Array.isArray(PlayerHand) && PlayerHand.length){
 
+function GameOver(win: boolean){
+    if(win){
+        alert("You won. Feel free to play again!");
+        location.reload();
     }
     else{
-        alert("You Win");
+        alert("You lost. Try playing again!");
+        location.reload();
     }
-
 }
-
